@@ -25,22 +25,23 @@ module DropletKit
       action :delete, 'DELETE /v2/kubernetes/clusters/:cluster_id' do
       end
 
-      action :all_node_pools, 'GET /v2/kubernetes/clusters/:cluster_id/node_pools' do
+      action :cluster_node_pools, 'GET /v2/kubernetes/clusters/:cluster_id/node_pools' do
+        handler(200) { |response| KubernetesNodePoolMapping.extract_collection(response.body, :read) }
       end
 
-      action :find_node_pool, 'GET /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id' do
+      action :cluster_find_node_pool, 'GET /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id' do
       end
 
-      action :create_node_pool, 'POST /v2/kubernetes/clusters/:cluster_id/node_pools' do
+      action :cluster_node_pool_create, 'POST /v2/kubernetes/clusters/:cluster_id/node_pools' do
       end
 
-      action :update_node_pool, 'PUT /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id' do
+      action :cluster_node_pool_update, 'PUT /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id' do
       end
 
-      action :delete_node_pool, 'DELETE /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id' do
+      action :cluster_node_pool_delete, 'DELETE /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id' do
       end
 
-      action :recycle_node_pool, 'POST /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id/recycle' do
+      action :cluster_node_pool_recycle, 'POST /v2/kubernetes/clusters/:cluster_id/node_pools/:pool_id/recycle' do
       end
 
       action :get_options, 'GET /v2/kubernetes/options' do
