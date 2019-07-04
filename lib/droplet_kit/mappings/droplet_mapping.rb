@@ -16,6 +16,7 @@ module DropletKit
       property :status, scopes: [:read]
       property :backup_ids, scopes: [:read]
       property :snapshot_ids, scopes: [:read]
+      property :volume_ids, scopes: [:read]
       property :action_ids, scopes: [:read]
       property :features, scopes: [:read]
       property :size_slug, scopes: [:read]
